@@ -297,7 +297,7 @@ componentDidMount(){
 
 Component可以選擇哪個state作為props往下傳(向下資料流)，不能向上傳(想像state是水龍頭，水只能向下流)
 
-![image](https://github.com/JohnnyOfSnow/react-base/tree/master/ch04/downdata.jpg)
+![image](https://github.com/JohnnyOfSnow/react-base/blob/master/ch04/downdata.jpg)
 
 
 

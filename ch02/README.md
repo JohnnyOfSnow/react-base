@@ -4,6 +4,8 @@
 ## 學習筆記
 ***
 
+**ch2. Rendering Element**
+
 **建立 React 應用程式最小的單位是 element。**
 
 * **學習到的知識**

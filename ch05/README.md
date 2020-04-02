@@ -9,6 +9,7 @@
 * **學習到的知識**
   * 1.React element 跟 DOM element 在語法上的差異
   * 2.將參數傳給 Event Handler
+  * 3.自我練習:counter
 
 ***
 ### 1.React element 跟 DOM element 在語法上的差異
@@ -112,3 +113,88 @@ ReactDOM.render(
 ```
 
 > e 是一個綜合事件（synthetic event）
+
+
+
+***
+### 3.自我練習
+***
+
+**counter**
+
+```java
+class Test extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {number: 1};
+	}
+
+	addNumber(){
+		this.setState(() => ({
+			number: this.state.number + 1
+		}));
+	}
+
+	render(){
+		return(
+			<button onClick={this.addNumber.bind(this)}>
+				<span>{this.state.number}</span>
+			</button>
+		);
+	}
+}
+
+ReactDOM.render(
+	<Test />,
+	document.getElementById('root')
+);
+```
+
+**3X3按鈕OX**
+
+
+```java
+class Test extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {number: true};
+	}
+
+	addNumber(){
+		this.setState(() => ({
+			number: !this.state.number
+		}));
+	}
+
+	render(){
+		return(
+			<button onClick={this.addNumber.bind(this)}>
+				<span>{this.state.number ? 'O' : 'X'}</span>
+			</button>
+		);
+	}
+}
+
+function App(){
+	return(
+		<div>
+			<Test />
+			<Test />
+			<Test />
+			<br />
+			<Test />
+			<Test />
+			<Test />
+			<br />
+			<Test />
+			<Test />
+			<Test />
+		</div>
+	);
+}
+
+ReactDOM.render(
+	<App />,
+	document.getElementById('root')
+);
+```

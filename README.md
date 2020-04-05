@@ -10,6 +10,7 @@
   * ch3. Component 與 Prop
   * ch4. State 和生命週期
   * ch5. 事件處理
+  * ch6. 條件 Render
 
 ***
 ## 學習環境與工具

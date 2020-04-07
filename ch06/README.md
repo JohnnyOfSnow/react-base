@@ -11,6 +11,9 @@
 * **學習到的知識**
   * 1.暖身(簡單的if判斷)
   * 2.將參數傳給 Event Handler
+  * 3.Inline If 與 && 邏輯運算子
+  * 4.Inline If-Else 與三元運算子
+  * 5.防止 Component Render
   
 
 ***
@@ -104,6 +107,130 @@ ReactDOM.render(
 | 作用域 | block scoped | function scoped | block scoped |
 | 重複宣告? | 不可以 | 可以 | 不可以 |
 
-> 雖然 let button; 可以換成 var button; ，但在react裡先使用ES6的let
+> 雖然 let button; 可以換成 var button; ，但在react裡優先使用ES6的let
 
 
+***
+### 3.Inline If 與 && 邏輯運算子
+***
+
+**定義一個常數message，裡面有3個成員的陣列，目標要顯示你有3則為獨的訊息**
+
+```java
+function Mailbox(props){
+	const unreadMessage = props.unreadMessage;
+	return (
+		<div>
+			{unreadMessage.length > 0 && 
+				<h2>
+					You have {unreadMessage.length} unread message.
+				</h2>
+			}
+		</div>
+	);
+
+}
+
+const message = ['React', 'Re: React', 'Re:Re: React'];
+
+ReactDOM.render(
+	<Mailbox unreadMessage={message} />,
+	document.getElementById('root')
+)
+
+```
+
+> function component Mailbox 傳入 message 參數，透過 unreadMessage 接收
+
+> return 內 判斷 unreadMessage.length > 0 ，這裡大於0所以是true，&&後面跟著jsx敘述，React會回傳jsx敘述
+
+|   | 敘述1 | 敘述2 | React |
+|---|---|---|---|
+| && | true | jsx | jsx | 
+| && | false | jsx | 跳過 |
+
+***
+### 4.Inline If-Else 與三元運算子
+***
+
+```java
+render() {
+  const isGive = this.state.isGive;
+  return (
+    <div>
+      Cindy <b>{isGive ? 'give' : 'not give'}</b> an apple.
+    </div>
+  );
+}
+```
+
+> 三元運算子---變數 ? 變數true : 變數false
+
+當然也可用在jsx的判斷上
+
+```java
+render() {
+  const isGive = this.state.isGive;
+  return (
+    <div>
+      {isGive
+        ? <NotGiveButton onClick={this.handleGive} />
+        : <GiveButton onClick={this.handleNotGive} />
+      }
+    </div>
+  );
+}
+```
+
+***
+### 5.防止 Component Render
+***
+
+![image](https://github.com/JohnnyOfSnow/react-base/blob/master/ch06/avoidCR.jpg)
+
+```java
+function WarningBanner(props){
+	if(!props.warn){
+		return null;
+	}
+
+	return(
+		<div className="warning">
+			Warning!
+		</div>
+	);
+}
+
+class Page extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {showWarning: true};
+		this.handleToggleClick = this.handleToggleClick.bind(this);
+
+	}
+
+	handleToggleClick(){
+		this.setState(state => ({
+			showWarning: !state.showWarning
+		}));
+	}
+
+	render(){
+		return(
+			<div>
+				<WarningBanner warn={this.state.showWarning} />
+				<button onClick={this.handleToggleClick}>
+					{this.state.showWarning ? 'Hide' : 'Show'}
+				</button>
+			</div>
+		);
+	}
+}
+
+ReactDOM.render(
+	<Page />,
+	document.getElementById('root')
+);
+```
+
+> function component WarningBanner 當 warn 是 flase 時，回傳null，因此 class Page的render內<WarningBanner warn={this.state.showWarning} />會消失

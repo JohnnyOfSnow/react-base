@@ -191,4 +191,3 @@ const element = {
 
 > React 會讀取這些物件並用這些描述來產生 DOM 並保持他們在最新狀態
 
-# react-base

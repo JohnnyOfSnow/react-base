@@ -4,19 +4,20 @@
 ## 學習筆記
 ***
 
-* **學習到的知識**
-  * ch1. JSX 介紹
-  * ch2. Rendering Element
-  * ch3. Component 與 Prop
-  * ch4. State 和生命週期
-  * ch5. 事件處理
-  * ch6. 條件 Render
-  * ch7. 列表與 Key
+* **單元**
+	* **[ch1. JSX 介紹](https://github.com/JohnnyOfSnow/react-base/blob/master/ch01)**
+	* **[ch2. Rendering Element](https://github.com/JohnnyOfSnow/react-base/blob/master/ch02)**
+	* **[ch3. Component 與 Prop](https://github.com/JohnnyOfSnow/react-base/blob/master/ch03)**
+	* **[ch4. State 和生命週期](https://github.com/JohnnyOfSnow/react-base/blob/master/ch04)**
+	* **[ch5. 事件處理](https://github.com/JohnnyOfSnow/react-base/blob/master/ch05)**
+	* **[ch6. 條件 Render](https://github.com/JohnnyOfSnow/react-base/blob/master/ch06)**
+	* **[ch7. 列表與 Key](https://github.com/JohnnyOfSnow/react-base/blob/master/ch07)**
 
 ***
 ## 學習環境與工具
 * **Subline Text(練習寫README.md，留下學習過後的筆記)**
 * **Git bash(上傳筆記到Github)**
+* **Node.js(npm套件啟動react app)**
 
 ***
 ## 學習參考網站
